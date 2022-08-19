@@ -3,11 +3,14 @@
 {%- for buddy in fr  -%}
 	<div class="modal" id="{{ buddy.id }}" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <img alt="Logo {{ buddy.name }}" class="my-image rounded-circle" src="{{ buddy.img }}">
+    <div class="modal-content p-0">
+      <div class="mb-20">
+        <a data-dismiss="modal" class="btn btn-danger" role="button"><i class="bi bi-x-lg"></i></a>
+      </div>
+    <img alt="Logo {{ buddy.name }}" class="my-image border shadow rounded-circle" src="{{ buddy.img }}">
     <h1 class="text-center mb-0 font-weight-bolder">{{ buddy.name }}</h1>
     <hr class="border-bottom">
-    <div class="share text-center mt-15">
+    <div class="share text-center mt-15 mb-20">
         {% for share in buddy.link %}
         {% assign link = share.link | replace: 'TITLE', title | replace: 'URL', url
         %}
@@ -16,9 +19,6 @@
                 class="bi {{ share.icon }}"></i> {{ share.type }}</a>
         {% endfor %}
     </div>
-      <div class="text-right mt-20">
-        <a data-dismiss="modal" class="btn btn-primary" role="button">Oke</a>
-      </div>
     </div>
   </div>
 </div>
