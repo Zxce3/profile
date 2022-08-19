@@ -6,7 +6,12 @@ pre,
 samp {
     font-family: "Ubuntu", sans-serif;
 }
-
+.modal{
+    backdrop-filter: blur(3px);
+}
+.dark-mode .modal{
+    background-color: rgba(4, 4, 4, 0.73) !important;
+}
 .my-image {
     display: block;
     margin: auto;
