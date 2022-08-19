@@ -3,17 +3,7 @@
 should be on this list please contact me.</p>
 {% assign dta = site.data.friend.friend %}
 {%- for buddy in dta  -%}
-<div class="dropdown dropup with-arrow toggle-on-hover mr-5 border rounded-circle">
-    <a data-toggle="dropdown" id="{{ buddy.id }}" aria-haspopup="true" aria-expanded="false">
-        <img class="rounded-circle buddy-image" src="{{ buddy.img }}" alt="{{ buddy.name }}">
+    <a data-toggle="modal" class="text-decoration-none text-reset" data-target="{{ buddy.id }}" aria-haspopup="true" aria-expanded="false">
+        <img class="rounded-circle rounded" width="50"  src="{{ buddy.img }}" alt="{{ buddy.name }}">
     </a>
-    <div class="dropdown-menu dropdown-menu-{{ buddy.stat }}" aria-labelledby="{{buddy.id}}">
-        <h6 class="dropdown-header">{{buddy.name}}</h6>
-        <div class="dropdown-divider"></div>
-        {%- for uri in buddy.link -%}
-        <a href="{{ uri.link }}" class="dropdown-item">{{ uri.type }}</a>
-        {%- endfor -%}
-        <div class="dropdown-divider"></div>
-    </div>
-</div>
 {%- endfor -%}
