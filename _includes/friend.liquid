@@ -1,9 +1,11 @@
 <h2 class="content-title">Friend</h2>
 <p>I don't have many friends, and these are some of my friends both online and in real life, if you are not on the list and
 should be on this list please contact me.</p>
+<p>
 {% assign dta = site.data.friend.friend %}
 {%- for buddy in dta  -%}
     <a data-toggle="modal" class="text-decoration-none text-reset" data-target="{{ buddy.id }}" aria-haspopup="true" aria-expanded="false">
         <img class="rounded-circle border shadow rounded" width="50"  src="{{ buddy.img }}" alt="{{ buddy.name }}">
     </a>
 {%- endfor -%}
+</p>
