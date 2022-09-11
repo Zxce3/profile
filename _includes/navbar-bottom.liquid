@@ -1,0 +1,31 @@
+<nav class="navbar border-0 bottom-0 position-fixed bg-transparent">
+    <div class="navbar-content">
+
+    </div>
+    <div class="navbar-content ml-auto card m-5 p-5 rounded shadow-lg">
+    <a class="btn btn-square btn-rounded" data-toggle="tooltip" data-title="Home" type="button" href="{{ site.url |  relative_url }}"
+        aria-label="Home">
+        <i class="bi bi-house" aria-hidden="true"></i>
+    </a>
+        {%- for data in site.pages limit: 3 -%}
+        <a class="btn btn-square btn-rounded ml-5" data-toggle="tooltip" data-title="{{ data.title }}" type="button" href="{{ data.url |  relative_url }}" aria-label="{{ data.title }}">
+            <i class="bi bi-{{ data.icon }}" aria-hidden="true"></i>
+        </a>
+        {%- endfor -%}
+        <div class="dropdown dropup">
+            <button class="btn btn-square btn-rounded ml-5" data-toggle="dropdown" type="button" id="menu-list" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-plus-circle" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" style="left: -15em;" aria-labelledby="menu-list">
+                <div class="dropdown-content">
+                        <input type="text" class="form-control" placeholder="Text input">
+                    {%- for menu in site.pages -%}
+                    <a href="#" class="dropdown-item"><i class="badge font-size-18 bi bi-{{menu.icon}}"></i>  {{menu.title}}</a>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-text ml-auto">
+    </div>
+</nav>
