@@ -49,7 +49,17 @@ defaults:
     values:
       layout: post
       permalink: /:categories/:title/
-      
+  - scope:
+      path: '_pages'
+      type: pages
+    values:
+      layout: default
+      permalink: /:title
+collections:
+  pages:
+    output: true
+    sort_by: order
+
 markdown: kramdown
 kramdown:
     highlighter: rouge
