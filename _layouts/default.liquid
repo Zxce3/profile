@@ -10,13 +10,17 @@ layout: compress
     {% if page.title == 'About' %}
     {% include popup-friend.liquid %}
     {% endif %}
-    <div id="page-wrapper" class="page-wrapper">
-        <div class="content-wrapper bg-dark-dm">
-            <div class="container-fluid container-lg h-full">
+    <div id="page-wrapper" class="page-wrapper with-navbar">
+        {% include navbar.liquid %}
+        <div class="content-wrapper wallsvg">
+            {% if page.layout == 'home' %}
+            {% include navbar-bottom.liquid %}
+                {%- else -%}
+            <div class="container-fluid container-lg h-full bg-dark-dm bg-white-lm shadow-lg">
                 <div class="row">
                     <div class="col-xl-12">
-                        {% include navbar.liquid %}
                         <div class="p-0 m-0 border-0 ">
+                            {%- if page.title == 'About' -%}
                             <div class="row">
                                 <div class="col-lg-8 order-2">
                                     {{ content }}
@@ -24,18 +28,22 @@ layout: compress
                                 {%- assign me = site.data.profile.my -%}
                                 {%- if me -%}
                                 <div class="col-lg-4 order-1">
-                                    {%- if page.layout == 'home' or page.title == 'About' -%}
                                     {%- include profil.liquid -%}
-                                    {%- elsif page.layout == 'post' -%}
-                                    {%- include post-toc.liquid -%}
-                                    {%- endif -%}
                                 </div>
                                 {%- endif -%}
                             </div>
+                            {% elsif page.layout == 'post' or page.layout == 'page' %}
+                            {{ content }}
+                            {%- endif -%}
                         </div>
                     </div>
                 </div>
             </div>
-</body>
+            {% include navbar-bottom.liquid %}
 
+            {% endif %}
+            </div>
+            </div>
+            {% include js-script.liquid %}
+</body>
 </html>
