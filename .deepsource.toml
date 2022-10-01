@@ -1,0 +1,17 @@
+version = 1
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+[[analyzers]]
+name = "ruby"
+enabled = true
+
+[[transformers]]
+name = "standardjs"
+enabled = true
+
+[[transformers]]
+name = "standardrb"
+enabled = true
